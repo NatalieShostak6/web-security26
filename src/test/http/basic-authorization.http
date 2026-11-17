@@ -1,0 +1,84 @@
+### GET All items Happy Path
+GET http://localhost:8080/api/v1/items
+Authorization: Basic admin admin
+Accept: application/json
+
+###
+
+### GET All items Bed credentials
+GET http://localhost:8080/api/v1/items
+Authorization: Basic admin1 admin
+Accept: application/json
+
+###
+
+### GET one items
+GET http://localhost:8080/api/v1/items/2
+Authorization: Basic admin admin
+Accept: application/json
+
+###
+
+###### CREATE one item
+POST http://localhost:8080/api/v1/items
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "name": "name4",
+  "description": "d4"
+}
+
+###
+
+### GET one item Not Found (тест на неіснуючий id)
+GET http://localhost:8080/api/v1/items/999
+Authorization: Basic admin admin
+Accept: application/json
+
+###
+
+### UPDATE an item (оновлення існуючого елемента)
+PUT http://localhost:8080/api/v1/items
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name": "updatedName2",
+  "description": "updatedDesc2"
+}
+
+###
+
+### DELETE an item (видалення елемента за id)
+DELETE http://localhost:8080/api/v1/items/3
+Authorization: Basic admin admin
+
+###
+
+### CREATE one item Unauthorized (спроба створення без логіна/пароля)
+POST http://localhost:8080/api/v1/items
+Content-Type: application/json
+
+{
+  "name": "name5",
+  "description": "d5"
+}
+
+###
+
+### GET one item Unauthorized (спроба отримати елемент без авторизації)
+GET http://localhost:8080/api/v1/items/1
+Accept: application/json
+
+###
+
+
+
+
+
+
+
+
+
